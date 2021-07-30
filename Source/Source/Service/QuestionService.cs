@@ -42,13 +42,16 @@ namespace Source.Service
             foreach (var model in models)
             {
                 var qM = new QuestionModel {Id = model.Id, Tags = model.Tags, Category = model.Category};
-                if (model.Items == null) continue;
+                if (model.Items == null)
+                {
+                    result.Add(qM);
+                    continue;
+                }
                 foreach (var item in model.Items)
                 {
                     qM.Title = item.Title;
                     qM.Description = item.Description;
                     qM.Footer = item.Footer;
-                    result.Add(qM);
                 }
 
             }
