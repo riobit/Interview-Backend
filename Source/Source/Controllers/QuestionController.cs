@@ -37,7 +37,7 @@ namespace Source.Controllers
         [Route("one")]
         public async Task<ActionResult<object>>One()
         {
-            var request = client.GetStreamAsync(_baseUrl + "backend/question/three");
+            var request = client.GetStreamAsync(_baseUrl + "backend/question/one");
             var items = await JsonSerializer.DeserializeAsync<object>(await request);
             return Ok(items);
         }
@@ -45,7 +45,7 @@ namespace Source.Controllers
         [Route("two")]
         public async Task<ActionResult> Two()
         {
-            var request = client.GetStreamAsync(_baseUrl + "backend/question/three");
+            var request = client.GetStreamAsync(_baseUrl + "backend/question/two");
             var items = await JsonSerializer.DeserializeAsync<List<QuestionModel>>(await request);
             var result = _questionService.QuestionTwo(items);
             return Ok(result);
