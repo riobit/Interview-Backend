@@ -42,6 +42,7 @@ namespace Source.Service
             foreach (var model in models)
             {
                 var qM = new QuestionModel {Id = model.Id, Tags = model.Tags, Category = model.Category};
+                if (model.Items == null) continue;
                 foreach (var item in model.Items)
                 {
                     qM.Title = item.Title;
@@ -49,6 +50,7 @@ namespace Source.Service
                     qM.Footer = item.Footer;
                     result.Add(qM);
                 }
+
             }
             
             
