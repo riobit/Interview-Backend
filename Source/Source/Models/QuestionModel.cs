@@ -25,7 +25,7 @@ namespace Source.Models
         [JsonPropertyName("category")]
         public int Category { get; set; }
         [JsonPropertyName("items")]
-        public List<Item> Items { get; set; }
+        public List<Item> Items { get; set; } = new List<Item>();
         [JsonPropertyName("createdAt")]
         public DateTime CreatedAt { get; set; }
         [JsonPropertyName("tags")]

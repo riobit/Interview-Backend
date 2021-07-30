@@ -36,20 +36,22 @@ namespace Source.Service
         /// </summary>
         /// <param name="models"></param>
         /// <returns></returns>
-        public List<QuestionModel> QuestionThree(QuestionThreeModel models)
+        public List<QuestionModel> QuestionThree(List<QuestionThreeModel> models)
         {
             var result = new List<QuestionModel>();
-            var qM = new QuestionModel();
-            qM.Id = models.Id;
-            qM.Tags = models.Tags;
-            qM.Category = models.Category;
-            foreach (var model in models.Items)
+            foreach (var model in models)
             {
-                qM.Title = model.Title;
-                qM.Description = model.Description;
-                qM.Footer = model.Footer;
-                result.Add(qM);
+                var qM = new QuestionModel {Id = model.Id, Tags = model.Tags, Category = model.Category};
+                foreach (var item in model.Items)
+                {
+                    qM.Title = item.Title;
+                    qM.Description = item.Description;
+                    qM.Footer = item.Footer;
+                    result.Add(qM);
+                }
             }
+            
+            
 
             return result;
         }

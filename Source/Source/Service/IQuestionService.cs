@@ -9,6 +9,6 @@ namespace Source.Service
     public interface IQuestionService
     {
         List<QuestionModel> QuestionTwo(List<QuestionModel> models);
-        List<QuestionModel> QuestionThree(QuestionThreeModel models);
+        List<QuestionModel> QuestionThree(List<QuestionThreeModel> models);
     }
 }

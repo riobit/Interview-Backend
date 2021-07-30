@@ -55,7 +55,7 @@ namespace Source.Controllers
         public async Task<ActionResult> Three()
         {
             var request = client.GetStreamAsync(_baseUrl + "backend/question/three");
-            var items = await JsonSerializer.DeserializeAsync<QuestionThreeModel>(await request);
+            var items = await JsonSerializer.DeserializeAsync<List<QuestionThreeModel>>(await request);
             var result = _questionService.QuestionThree(items);
             return Ok(result);
         }
